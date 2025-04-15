@@ -1,0 +1,15 @@
+{
+  "name": "Lista de tarefas do Dia",
+  "version": "1.0.0",
+  "main": "node src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "Larissa Nathanna Gatto",
+  "license": "ISC",
+  "description": "Aplicação para criar lista de tarefas do dia e marcar as tarefas feitas, sem precisar de armazenagem no computador.",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
