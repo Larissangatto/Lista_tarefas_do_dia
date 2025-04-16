@@ -35,23 +35,23 @@ function montar(tarefas){
                     evt.stopPropagation()
                     apagarTarefa(tarefa.id)})
                        
-                    elItem.addEventListener('dblclick', () => {
-                        const entradaNovaDescricao = document.createElement("input")
-                        entradaNovaDescricao.value = tarefa.descricao
-                        entradaNovaDescricao.classList.add("atualizacao")
-                        elDescricao.innerHTML = ""
-                        elDescricao.appendChild(entradaNovaDescricao)
+                elItem.addEventListener('dblclick', () => {
+                    const entradaNovaDescricao = document.createElement("input")
+                    entradaNovaDescricao.value = tarefa.descricao
+                    entradaNovaDescricao.classList.add("atualizacao")
+                    elDescricao.innerHTML = ""
+                    elDescricao.appendChild(entradaNovaDescricao)
                         
-                        entradaNovaDescricao.focus()
-                    
-                        entradaNovaDescricao.addEventListener('blur', () => {
-                            const novaDescricao = entradaNovaDescricao.value.trim()
-                            if (novaDescricao && novaDescricao !== tarefa.descricao) {
-                                tarefa.descricao = novaDescricao
-                                atualizarTarefa(tarefa.id, tarefa.descricao)
-                            }
-                            elDescricao.innerText = tarefa.descricao
-                        })
+                    entradaNovaDescricao.focus()
+                
+                    entradaNovaDescricao.addEventListener('blur', () => {
+                        const novaDescricao = entradaNovaDescricao.value.trim()
+                        if (novaDescricao && novaDescricao !== tarefa.descricao) {
+                            tarefa.descricao = novaDescricao
+                            atualizarTarefa(tarefa.id, tarefa.descricao)
+                        }
+                        elDescricao.innerText = tarefa.descricao
+                    })
                     
                         entradaNovaDescricao.addEventListener('keydown', (evt) => {
                             if (evt.key === "Enter") {
@@ -159,6 +159,14 @@ elCriar.addEventListener('click',(evento) =>{
         criarTarefa(novaTarefa)
     }
 })
+elNovaTarefa.addEventListener('keydown', (evento) => { 
+    if (evento.key === 'Enter') {
+      const novaTarefa = elNovaTarefa.value.trim();
+      if (novaTarefa !== "") {
+        criarTarefa(novaTarefa);
+      }
+    }
+  })
 
 elTitulo.addEventListener('click',()=>{
 
